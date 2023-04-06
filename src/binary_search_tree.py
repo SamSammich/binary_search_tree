@@ -34,3 +34,20 @@ class BinarySearchTree:
 
     def search(self, post_id: int) -> dict:
         """Searching and returning dictionary by his id"""
+        if self.__root is not None:
+             return  self._search_recursively(self.__root, post_id)
+
+    def _search_recursively(self, node: Node, data_id: int) -> dict | None:
+        """Ищем рекурсивно данные и возвращаем, если наши, иначе None."""
+        if data_id == node.data['id']:
+            return node.data
+        if data_id < node.data['id']:
+            if node.left is None:
+                return None
+            else:
+                return self._search_recursively(node.left, data_id)
+        if data_id > node.data['id']:
+            if node.right is None:
+                return None
+            else:
+                return self._search_recursively(node.right, data_id)
