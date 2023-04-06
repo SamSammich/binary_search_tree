@@ -4,5 +4,5 @@ class Node:
     def __init__(self, data: dict) -> None:
         """Saving data initializing left and right attribute"""
         self.data = data
-        self.left = None
-        self.right = None
+        self.left: Node | None = None
+        self.right: Node | None = None
